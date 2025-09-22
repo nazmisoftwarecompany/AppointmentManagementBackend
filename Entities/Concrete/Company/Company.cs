@@ -1,36 +1,31 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 
 namespace Entities.Concrete.Company
 {
-    public class Company
+    public class Company : BaseEntity
     {
-        public int Id { get; set; } // Şirket ID
-        public int CompanyCategoryId { get; set; } // Şirket kategorisi
-        public string CompanyName { get; set; } // Şirket adı
-        public string Country { get; set; } // Ülke
-        public string State { get; set; } // Eyalet
-        public string City { get; set; } // Şehir
-        public string District { get; set; } // İlçe
-        public string Address { get; set; } // Şirket adresi
-        public DateTime CreatedAt { get; set; } // Oluşturulma tarihi
-        public DateTime UpdatedAt { get; set; } // Son güncelleme tarihi
-        public DateTime? DeletedAt { get; set; } // Mantıksal silme tarihi
-        public string DialCode { get; set; } // Ülke kodu +90, +49
-        public string PhoneNumber { get; set; } // Şirket telefon numarası
-        public string Email { get; set; } // Şirket e-posta
-        public string Website { get; set; } // Şirket web sitesi
-        public bool IsActive { get; set; } // Aktif/Pasif durumu
-        public bool IsDeleted { get; set; } // Mantıksal silme
-        public int SubscriptionId { get; set; } // Abonelik türü
-        public string LogoUrl { get; set; } // Şirket logosu
-        public string Timezone { get; set; } // Europe/Berlin, Europe/Istanbul
-        public string Language { get; set; } = "de"; // de, tr, en
-        public string Currency { get; set; } = "EUR"; // EUR, USD, TRY
-        public string Description { get; set; } // Şirket açıklaması
-        public string SocialMediaLinks { get; set; } // JSON olarak
-        public bool OnlineBookingEnabled { get; set; } = true; // Online randevu
-        public int MaxAdvanceBookingDays { get; set; } = 30; // Kaç gün önceden randevu
-        public int MinAdvanceBookingHours { get; set; } = 2; // En az kaç saat önceden
-        public int CancellationDeadlineHours { get; set; } = 24; // İptal süresi
+        public int CompanyCategoryId { get; set; }                      // Şirketin hangi kategoride olduğu (kuaför, doktor, avukat vb.)
+        public string CompanyName { get; set; }                         // Şirket adı
+        public string Country { get; set; }                             // Şirketin bulunduğu ülke
+        public string State { get; set; }                               // Eyalet/bölge bilgisi (opsiyonel)
+        public string City { get; set; }                                // Şehir bilgisi
+        public string District { get; set; }                            // İlçe/semt bilgisi
+        public string Address { get; set; }                             // Detaylı adres bilgisi
+        public string DialCode { get; set; } = "+90";                   // Ülke telefon kodu (+90, +49, +1 vb.)
+        public string PhoneNumber { get; set; }                         // Şirket telefon numarası
+        public string Email { get; set; }                               // Şirket e-posta adresi
+        public string Website { get; set; }                             // Şirket web sitesi URL'i
+        public int SubscriptionId { get; set; }                         // Abonelik paketi ID'si (Free, Premium, Enterprise vb.)
+        public string LogoUrl { get; set; }                             // Şirket logosunun URL'i
+        public string Timezone { get; set; } = "Europe/Istanbul";       // Şirketin bulunduğu saat dilimi
+        public string Language { get; set; } = "tr";                    // Şirketin varsayılan dili (tr, en, de)
+        public string Currency { get; set; } = "TRY";                   // Şirketin kullandığı para birimi
+        public string Description { get; set; }                         // Şirket hakkında açıklama/tanıtım metni
+        public string SocialMediaLinks { get; set; }                    // Sosyal medya hesapları (JSON formatında)
+        public bool OnlineBookingEnabled { get; set; } = true;          // Online randevu alımına açık mı
+        public int MaxAdvanceBookingDays { get; set; } = 30;            // Kaç gün öncesinden randevu alınabilir (maksimum)
+        public int MinAdvanceBookingHours { get; set; } = 2;            // En az kaç saat öncesinden randevu alınabilir
+        public int CancellationDeadlineHours { get; set; } = 24;        // Randevu iptal etme son tarihi (saat cinsinden)
     }
 }
