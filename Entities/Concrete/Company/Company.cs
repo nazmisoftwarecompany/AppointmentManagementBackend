@@ -27,5 +27,9 @@ namespace Entities.Concrete.Company
         public int MaxAdvanceBookingDays { get; set; } = 30;            // Kaç gün öncesinden randevu alınabilir (maksimum)
         public int MinAdvanceBookingHours { get; set; } = 2;            // En az kaç saat öncesinden randevu alınabilir
         public int CancellationDeadlineHours { get; set; } = 24;        // Randevu iptal etme son tarihi (saat cinsinden)
+        public string TaxNumber { get; set; }                   // Vergi numarası - EKSIK
+        public string LicenseNumber { get; set; }               // İşyeri ruhsat numarası - EKSIK  
+        public DateTime? FoundedDate { get; set; }              // Kuruluş tarihi - EKSIK
+        public int? OwnerUserId { get; set; }                   // Şirket sahibi User ID - EKSIK
     }
 }

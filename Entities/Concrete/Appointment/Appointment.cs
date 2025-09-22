@@ -43,5 +43,9 @@ namespace Entities.Concrete.Appointment
         public int? RescheduledFromAppointmentId { get; set; }      // Eğer bu randevu başka bir randevudan ertelenmiş ise, eski randevunun ID'si
         public string BookingSource { get; set; } = "Online";       // Randevunun nasıl alındığı (Online, Phone, Walk-in)
         public string BookingReference { get; set; }                // Randevu referans numarası (benzersiz takip kodu)
+        public int? PaymentId { get; set; }                     // İlişkili ödeme kaydı - EKSIK
+        public bool IsOnline { get; set; } = false;             // Online randevu mu - EKSIK
+        public string MeetingLink { get; set; }                 // Online randevu linki - EKSIK
+
     }
 }
